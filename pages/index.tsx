@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
+import Lista from '../src/components/Lista/Lista'
 
 const Home: NextPage = () => {
   return (
-   <>
-      <div>Conteudo</div>
-   </>
+   <Lista></Lista>
   )
 }
 
