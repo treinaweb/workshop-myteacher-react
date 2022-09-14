@@ -1,45 +1,25 @@
 import { Button } from "@mui/material";
+import { Professor } from "../../@types/professor";
 import { Descricao, Foto, Informacoes, ItemLista, ListaStyled, Nome, Valor } from "./Lista.style";
 
-const Lista = () => {
+interface ListaProps {
+    professores: Professor[],
+}
+
+const Lista = (props: ListaProps) => {
     return (
         <ListaStyled>
-            <ItemLista>
-                <Foto src="https://github.com/elton-fonseca.png"></Foto>
-                <Informacoes>
-                    <Nome>Elton Fonseca</Nome>
-                    <Valor>R$ 100,00 por hora</Valor>
-                    <Descricao>Aulas de programação</Descricao>
-                    <Button sx={{ width: '70%'}}>Marcar Aula com Elton</Button>
-                </Informacoes>
-            </ItemLista>
-            <ItemLista>
-                <Foto src="https://github.com/elton-fonseca.png"></Foto>
-                <Informacoes>
-                    <Nome>Elton Fonseca</Nome>
-                    <Valor>R$ 100,00 por hora</Valor>
-                    <Descricao>Aulas de programação</Descricao>
-                    <Button sx={{ width: '70%'}}>Marcar Aula com Elton</Button>
-                </Informacoes>
-            </ItemLista>
-            <ItemLista>
-                <Foto src="https://github.com/elton-fonseca.png"></Foto>
-                <Informacoes>
-                    <Nome>Elton Fonseca</Nome>
-                    <Valor>R$ 100,00 por hora</Valor>
-                    <Descricao>Aulas de programação</Descricao>
-                    <Button sx={{ width: '70%'}}>Marcar Aula com Elton</Button>
-                </Informacoes>
-            </ItemLista>
-            <ItemLista>
-                <Foto src="https://github.com/elton-fonseca.png"></Foto>
-                <Informacoes>
-                    <Nome>Elton Fonseca</Nome>
-                    <Valor>R$ 100,00 por hora</Valor>
-                    <Descricao>Aulas de programação</Descricao>
-                    <Button sx={{ width: '70%'}}>Marcar Aula com Elton</Button>
-                </Informacoes>
-            </ItemLista>
+            {props.professores.map(professor => (
+                <ItemLista>
+                    <Foto src={professor.foto}></Foto>
+                    <Informacoes>
+                        <Nome>{professor.nome}</Nome>
+                        <Valor>{professor.valor_hora} por hora</Valor>
+                        <Descricao>{professor.descricao}</Descricao>
+                        <Button sx={{ width: '70%' }}>Marcar Aula com Elton</Button>
+                    </Informacoes>
+                </ItemLista>
+            ))}
         </ListaStyled>
     )
 }
