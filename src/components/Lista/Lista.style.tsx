@@ -22,7 +22,9 @@ export const Nome = styled('h3')`
 `;
 
 export const Valor = styled('p')`
-
+    margin: 0;
+    font-weight: bold;
+    color: ${({theme}) => theme.palette.primary.main}
 `;
 
 export const Descricao = styled('p')`

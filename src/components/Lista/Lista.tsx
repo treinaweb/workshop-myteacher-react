@@ -8,7 +8,7 @@ const Lista = () => {
                 <Foto src="https://github.com/elton-fonseca.png"></Foto>
                 <Informacoes>
                     <Nome>Elton Fonseca</Nome>
-                    <Valor>R$ 100,00</Valor>
+                    <Valor>R$ 100,00 por hora</Valor>
                     <Descricao>Aulas de programação</Descricao>
                     <Button>Marcar Aula</Button>
                 </Informacoes>
