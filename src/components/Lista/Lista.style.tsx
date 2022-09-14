@@ -2,23 +2,33 @@ import { styled } from "@mui/material";
 
 
 export const ListaStyled = styled('ul')`
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: ${({ theme }) => theme.spacing(10, 2, 10, 2)};
 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: ${({ theme }) => theme.spacing(9)};
+
+    ${({theme}) => theme.breakpoints.down('md')} {
+        grid-template-columns: 1fr;
+        gap: ${({ theme }) => theme.spacing(8)};
+    }
 `;
 
 export const ItemLista = styled('li')`
-
+    list-style: none;
 `;
 
 export const Foto = styled('img')`
-
+    width: 100%;
 `;
 
-export const Informacoes = styled('div')`
-
-`;
+export const Informacoes = styled('div')``;
 
 export const Nome = styled('h3')`
-
+    margin: ${({theme}) => theme.spacing(2, 0, 0, 0)};
 `;
 
 export const Valor = styled('p')`
@@ -28,5 +38,5 @@ export const Valor = styled('p')`
 `;
 
 export const Descricao = styled('p')`
-
+    word-break: break-word;
 `;
