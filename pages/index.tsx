@@ -5,12 +5,23 @@ import Lista from '../src/components/Lista/Lista'
 import { useIndex } from '../src/hooks/pages/useIndex'
 
 const Home: NextPage = () => {
-  const { listaProfessores, nome, setNome, email, setEmail } = useIndex();
+  const { 
+    listaProfessores, 
+    nome, 
+    setNome, 
+    email, 
+    setEmail,
+    professorSelecionado,
+    setProfessorSelecionado 
+  } = useIndex();
 
   return (
    <div>
       <Box sx={{ backgroundColor: 'secondary.main' }}>
-        <Lista professores={listaProfessores}></Lista>
+        <Lista 
+          professores={listaProfessores}
+          onSelect={(professor) => setProfessorSelecionado(professor)}
+        ></Lista>
       </Box>
 
       <Dialog open={true} fullWidth PaperProps={{sx: {p: 5}}}>
