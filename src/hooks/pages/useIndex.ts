@@ -15,6 +15,28 @@ export function useIndex() {
         })
     }, []);
 
+    function marcarAula(){
+        if (professorSelecionado !== null) {
+            if (validarDadosAula()) {
+                ApiService.post('/professores/' + professorSelecionado.id +'/aulas', {
+                    nome,
+                    email
+                }).then(() => {
+                    setProfessorSelecionado(null);
+                    alert('Cadastrado com sucesso');
+                }).catch((error) => {
+                    alert(error.response?.data.message);
+                });
+            } else {
+                alert('Preencha os dados corretamente');
+            }
+        }
+    }
+
+    function validarDadosAula() {
+        return nome.length > 0 && email.length > 0;
+    }
+
     return {
         listaProfessores,
         nome,
@@ -22,6 +44,7 @@ export function useIndex() {
         email,
         setEmail,
         professorSelecionado,
-        setProfessorSelecionado
+        setProfessorSelecionado,
+        marcarAula
     }
 }
